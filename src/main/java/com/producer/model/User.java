@@ -1,29 +1,31 @@
 package com.producer.model;
 
+import jakarta.persistence.*;
 
+@Table(name = "users")
+@Entity
 public class User {
 
-    int userId;
-    String name;
-    String emailId;
-    Long phone;
+    @jakarta.persistence.Id
+    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    public User(int userId, String name, String emailId, Long phone) {
-        this.userId = userId;
-        this.name = name;
-        this.emailId = emailId;
-        this.phone = phone;
+    @Column(name = "name",nullable = false)
+    private String name;
+
+    @Column(name = "email",nullable = false)
+    private String email;
+
+    @Column(name = "password",  nullable = false)
+    private String password;
+
+    public Long getId() {
+        return id;
     }
 
-    public User() {
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -34,20 +36,20 @@ public class User {
         this.name = name;
     }
 
-    public String getEmailId() {
-        return emailId;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmailId(String emailId) {
-        this.emailId = emailId;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public Long getPhone() {
-        return phone;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPhone(Long phone) {
-        this.phone = phone;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
 

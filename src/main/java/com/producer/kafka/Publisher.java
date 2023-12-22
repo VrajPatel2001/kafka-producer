@@ -12,7 +12,7 @@ public class Publisher {
     @Autowired
     private KafkaTemplate<String, User> kafkaTemplate;
 
-    public void UserCreated(User User){
+    public void userCreated(User User){
         kafkaTemplate.send(Constraint.USER_CREATED,User);
     }
 }
